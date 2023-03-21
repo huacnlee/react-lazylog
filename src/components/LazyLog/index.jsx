@@ -362,9 +362,9 @@ export default class LazyLog extends Component {
 
   handleUpdate = ({ lines: moreLines, encodedLog }) => {
     this.encodedLog = encodedLog;
-    const { scrollToLine, follow, stream, websocket } = this.props;
+    const { scrollToLine, follow, stream, websocket, extraLines } = this.props;
     const { lineLimit, count: previousCount } = this.state;
-    let offset = 0;
+    let offset = extraLines;
     let lines = (this.state.lines || List()).concat(moreLines);
     let count = lines.count();
 
